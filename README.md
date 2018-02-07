@@ -8,6 +8,15 @@ this sbt projects.
 
 ## Usage
 
+Add to `project/plugins.sbt`:
+
+    addSbtPlugin("net.bzzt" % "sbt-paradox-reveal-js" % "0.1.0-SNAPSHOT")
+
+Add to your settings:
+
+    enablePlugins(ParadoxRevealPlugin)
+    paradoxTheme := Some("net.bzzt" % "paradox-theme-reveal-js" % "0.1.0-SNAPSHOT")
+
 Write your presentation as a paradox page in src/main/paradox as described in the
 [paradox documentation](https://developer.lightbend.com/docs/paradox/latest)
 
