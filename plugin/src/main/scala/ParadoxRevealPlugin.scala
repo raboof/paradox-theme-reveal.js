@@ -6,6 +6,8 @@ import com.lightbend.paradox.sbt.ParadoxPlugin
 object ParadoxRevealPlugin extends AutoPlugin {
   import ParadoxPlugin.autoImport._
 
+  override def requires = ParadoxPlugin
+
   override def projectSettings: Seq[Setting[_]] = Seq(
     paradoxDirectives += {
   import com.lightbend.paradox.markdown.Writer.Context
