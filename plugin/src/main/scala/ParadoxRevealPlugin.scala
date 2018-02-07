@@ -43,12 +43,16 @@ object ParadoxRevealPlugin extends AutoPlugin {
     },
     paradoxDirectives += {
       import com.lightbend.paradox.markdown.Writer.Context
-      import com.lightbend.paradox.markdown.WrapDirective
+      import com.lightbend.paradox.markdown.Directive
 
       (_: Context) =>
-        new WrapDirective("section") {
+        new Directive() {
           import org.pegdown.ast._
           import org.pegdown.Printer
+          import org.pegdown.ast.DirectiveNode
+
+          override val names = Seq("notes", "notes".toUpperCase)
+          override val format = Set(DirectiveNode.Format.ContainerBlock, DirectiveNode.Format.Inline)
 
           override def render(node: DirectiveNode,
                               visitor: Visitor,
@@ -58,34 +62,12 @@ object ParadoxRevealPlugin extends AutoPlugin {
                 case null => ""
                 case x    => s""" id="$x""""
               }
-            val classes =
-              node.attributes.classesString match {
-                case "" => ""
-                case x  => s""" class="$x""""
-              }
             import scala.collection.JavaConverters._
+            val classes = ("notes" +: node.attributes.classes.asScala).mkString(" ")
             val attrs = node.attributes.keys.asScala
               .map(key => s""" $key="${node.attributes.value(key)}"""")
               .mkString
-            printer.print(s"""<$typ$id$classes$attrs>""")
-            node.contentsNode.accept(visitor)
-            printer.print(s"</$typ>")
-          }
-        }
-    },
-    paradoxDirectives += {
-      import com.lightbend.paradox.markdown.Writer.Context
-      import com.lightbend.paradox.markdown.InlineDirective
-
-      (_: Context) =>
-        new InlineDirective("notes") {
-          import org.pegdown.ast._
-          import org.pegdown.Printer
-
-          override def render(node: DirectiveNode,
-                              visitor: Visitor,
-                              printer: Printer): Unit = {
-            printer.print(s"""<aside class="notes">""")
+            printer.print(s"""<aside$id class="$classes"$attrs>""")
             node.contentsNode.accept(visitor)
             printer.print(s"</aside>")
           }
