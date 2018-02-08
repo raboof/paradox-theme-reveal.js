@@ -8,3 +8,8 @@ deploy:
   script: sbt publish
   on:
     tags: true
+
+env:
+  global:
+    - BINTRAY_USER="raboofje"
+    - secure: "m3w3cQ4Pe0B73QHg/jvIIgIc4/XSRcztEDgouG8qYQ+eD9Qk+hS5FHMRQM/ARMrdtG1q24zrAdxZSezAtIJtOCwTlmUzee+rNP4w7sjeOa7suj4eMLqACiAYgcLmgQHStOgPJ1O1xzjrUqLV5B1FNwWnJmM2kn7Vmtdux3AGjyzSfcadC9bxvMdIplEJNrR/XREDF9sJzG5lgpFtDM2t356dlRZrkXLhoh03QmRC2eoMUZ7Ej8fxRXrzjbTszYe/VoL015i+CapJjpSSNy2I7Kxi6kOOe9dZGYoo/yVuVKS9p5TyTCx2hsuLrfIwdko6hpy00EwAaTicU6VPFXCxLCkL8IXV3FG8MahlP7SS8pTST5GbfQjw1t4FdDzMUXC9TQCj3m10+ujR8YEkIcq6JeNhVBleVkCwEBkcyS83NFpPsFWVBIVFkrZWaISgf0wNvBnFRFz7DNaHE7vA5hELpB0pnDgNwxgJhz6wYQ7rFu74Ejdz4YMF/fXkKK6OOwYUpw0eFP03xclMGFWfbccMjgIzIvXNKmBBi4hlbV6R/6r/4NpLhiS9AHolQihIBZ0KIObpXLhYRMGddJOWPk5f2pLhsj4sUAY3/TedMPlm+YPxFx8AcyyqRhMwsghgm/E4ppS3BePdxY2pImkZaACRAX2VDbZoTnrzt6UieaLSQmw="
