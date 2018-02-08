@@ -11,6 +11,7 @@ lazy val theme = project
 
 lazy val plugin = project
   .in(file("plugin"))
+  .enablePlugins(BuildInfoPlugin)
   .settings(
     name := "sbt-paradox-reveal.js",
     organization := "net.bzzt",
@@ -18,6 +19,9 @@ lazy val plugin = project
 
     sbtPlugin := true,
     addSbtPlugin("com.lightbend.paradox" % "sbt-paradox" % "0.3.2"),
+
+    buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
+    buildInfoPackage := "net.bzzt.paradox.reveal.js",
 
     publishMavenStyle := false,
     bintrayRepository := "sbt-plugins",

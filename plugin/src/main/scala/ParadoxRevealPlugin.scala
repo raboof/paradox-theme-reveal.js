@@ -1,4 +1,4 @@
-package net.bzzt
+package net.bzzt.paradox.reveal.js
 
 import sbt._
 import com.lightbend.paradox.sbt.ParadoxPlugin
@@ -9,6 +9,7 @@ object ParadoxRevealPlugin extends AutoPlugin {
   override def requires = ParadoxPlugin
 
   override def projectSettings: Seq[Setting[_]] = Seq(
+    paradoxTheme := Some("net.bzzt" % "paradox-theme-reveal-js" % BuildInfo.version),
     paradoxDirectives += {
       import com.lightbend.paradox.markdown.Writer.Context
       import com.lightbend.paradox.markdown.WrapDirective
