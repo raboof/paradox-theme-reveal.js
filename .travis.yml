@@ -5,6 +5,6 @@ scala: "2.12.4"
 deploy:
   provider: script
   skip-cleanup: true
-  script: sbt version
+  script: sbt publish
   on:
     tags: true
