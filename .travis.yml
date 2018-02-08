@@ -3,5 +3,7 @@ language: scala
 scala: "2.12.4"
 
 deploy:
+  provider: script
+  script: sbt version
   on:
     tags: true
