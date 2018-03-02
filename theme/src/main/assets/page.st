@@ -7,6 +7,7 @@
 		<title>$page.title$</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/extra.css">
 		<link rel="stylesheet" href="css/theme/akka.css">
 
 		<!-- Theme used for syntax highlighting of code -->
