@@ -18,7 +18,7 @@ lazy val plugin = project
     licenses += ("MIT", url("http://opensource.org/licenses/MIT")),
 
     sbtPlugin := true,
-    addSbtPlugin("com.lightbend.paradox" % "sbt-paradox" % "0.3.2"),
+    addSbtPlugin("com.lightbend.paradox" % "sbt-paradox" % "0.3.5"),
 
     buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
     buildInfoPackage := "net.bzzt.paradox.reveal.js",
